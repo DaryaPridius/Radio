@@ -49,7 +49,7 @@ public class RadioTest {
         Radio radio = new Radio();
 
         radio.setStation(5);
-        radio.NextStation();
+        radio.nextStation();
 
         int expected = 6;
         int actual = radio.getStation();
@@ -63,7 +63,7 @@ public class RadioTest {
         Radio radio = new Radio();
 
         radio.setStation(9);
-        radio.NextStation();
+        radio.nextStation();
 
         int expected = 0;
         int actual = radio.getStation();
@@ -76,7 +76,7 @@ public class RadioTest {
         Radio radio = new Radio();
 
         radio.setStation(7);
-        radio.PrevStation();
+        radio.prevStation();
 
         int expected = 6;
         int actual = radio.getStation();
@@ -89,7 +89,7 @@ public class RadioTest {
         Radio radio = new Radio();
 
         radio.setStation(0);
-        radio.PrevStation();
+        radio.prevStation();
 
         int expected = 9;
         int actual = radio.getStation();
