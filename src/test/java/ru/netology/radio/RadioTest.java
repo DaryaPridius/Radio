@@ -4,10 +4,10 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class RadioTest {
+    Radio radio = new Radio();
 
     @Test
-    public void shouldSetStation() {             // установить станцию
-        Radio radio = new Radio();
+    public void setTheStationToTheDefaultValue() {             // установить станцию
 
         radio.setStation(7);
 
@@ -18,11 +18,23 @@ public class RadioTest {
     }
 
     @Test
+    public void setNewNumberOfStation() {
+        Radio radio = new Radio(30);
+
+        radio.setStation(20);
+
+        int expected = 20;
+        int actual = radio.getStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
 
     public void shouldToSelectStationAboveTheLimit() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(30);
 
-        radio.setStation(11);
+        radio.setStation(30);
 
         int expected = 0;
         int actual = radio.getStation();
@@ -33,7 +45,6 @@ public class RadioTest {
     @Test
 
     public void shouldToSelectStationBelowTheLimit() {
-        Radio radio = new Radio();
 
         radio.setStation(-1);
 
@@ -46,7 +57,6 @@ public class RadioTest {
     @Test
 
     public void selectTheNextStation() {
-        Radio radio = new Radio();
 
         radio.setStation(5);
         radio.nextStation();
@@ -60,7 +70,6 @@ public class RadioTest {
     @Test
 
     public void selectTheNextStationAfterTheMax() {
-        Radio radio = new Radio();
 
         radio.setStation(9);
         radio.nextStation();
@@ -73,7 +82,6 @@ public class RadioTest {
 
     @Test
     public void selectThePrevStation() {
-        Radio radio = new Radio();
 
         radio.setStation(7);
         radio.prevStation();
@@ -86,7 +94,6 @@ public class RadioTest {
 
     @Test
     public void selectThePrevStationAfterTheMin() {
-        Radio radio = new Radio();
 
         radio.setStation(0);
         radio.prevStation();
@@ -97,9 +104,9 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
+
     @Test
     public void shouldIncreaseTheVolume() {
-        Radio radio = new Radio();
 
         radio.setVolume(77);
         radio.increaseVolume();
@@ -112,7 +119,6 @@ public class RadioTest {
 
     @Test
     public void shouldIncreaseTheVolumeAboveTheMax() {
-        Radio radio = new Radio();
 
         radio.setVolume(100);
         radio.increaseVolume();
@@ -124,7 +130,6 @@ public class RadioTest {
     }
     @Test
     public void shouldTurnDownTheVolume() {
-        Radio radio = new Radio();
 
         radio.setVolume(68);
         radio.turnDownTheVolume();
@@ -137,7 +142,6 @@ public class RadioTest {
 
     @Test
     public void shouldTurnDownTheVolumeLessTheMin() {
-        Radio radio = new Radio();
 
         radio.setVolume(0);
         radio.turnDownTheVolume();
@@ -151,7 +155,6 @@ public class RadioTest {
     @Test
 
     public void setTheVolumeAbove100() {
-        Radio radio = new Radio();
 
         radio.setVolume(101);
 
@@ -163,7 +166,6 @@ public class RadioTest {
     @Test
 
     public void setTheVolumeLess0() {
-        Radio radio = new Radio();
 
         radio.setVolume(-2);
 
